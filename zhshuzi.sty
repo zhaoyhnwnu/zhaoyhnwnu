@@ -1,0 +1,60 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%            带圈（带框）数字
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{zhshuzi}[2020/5/30]
+
+
+\RequirePackage{etoolbox}
+\RequirePackage{tikz}
+\newfontfamily\plt{Arial}
+\newlength\szg
+\newcommand\quan[1]{%
+	\settoheight\szg{#1}%
+	\tikz[baseline]{\pgfmathparse{
+			ifthenelse(#1 < 10, 0.9, ifthenelse(#1 < 100, 0.7, 0.45))
+		}
+		\let\hfs\pgfmathresult
+		\node at (0,\szg/2) {\makebox[0.35em][c]{\scalebox{\hfs}[1]{#1}}};
+		\draw (0,\szg/2) circle (\szg/2+0.28ex);
+}}
+
+\newcommand\fquan[1]{%
+	\settoheight\szg{#1}%
+	\tikz[baseline]{\pgfmathparse{
+			ifthenelse(#1 < 10, 0.9, ifthenelse(#1 < 100, 0.7, 0.45))
+		}
+		\let\hfs\pgfmathresult
+		\node at (0,\szg/2) {\makebox[0.35em][c]{\scalebox{\hfs}[1]{#1}}};
+		\draw (-1ex,-0.3ex) rectangle (1ex,1.8ex);
+}}
+
+\newcommand\hfquan[1]{%
+	\settoheight\szg{#1}%
+	\tikz[baseline]{\pgfmathparse{
+			ifthenelse(#1 < 10, 0.9, ifthenelse(#1 < 100, 0.6, 0.4))
+		}
+		\let\hfs\pgfmathresult
+		\filldraw[black] (-1ex,-0.3ex) rectangle (1ex,1.8ex);
+	\node[white] at (0,\szg/2) {\makebox[0.35em][c]{\scalebox{\hfs}[1]{\plt\textbf{#1}}}};
+}}
+\newcommand\hquan[1]{%
+	\settoheight\szg{#1}%
+	\tikz[baseline]{\pgfmathparse{
+			ifthenelse(#1 < 10, 0.9, ifthenelse(#1 < 100, 0.6, 0.4))
+		}
+		\let\hfs\pgfmathresult
+		\filldraw (0,\szg/2) circle (\szg/2+0.28ex);
+		\node[white] at (0,\szg/2) {\makebox[0.35em][c]{\scalebox{\hfs}[1]{{\plt \textbf{#1}}}}};
+}}
+
+\robustify{\quan}
+\robustify{\hquan}
+\robustify{\fquan}
+\robustify{\hfquan}
+
+\endinput
+
+
+

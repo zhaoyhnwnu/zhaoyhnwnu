@@ -1,0 +1,80 @@
+\documentclass{article}
+\usepackage{geometry}
+\geometry{a4paper,left=2cm,right=2cm,top=2.5cm,bottom=2.5cm}   %landscape页面横制,twocolumn双栏
+%\geometry{a3paper,landscape,twocolumn,left=2cm,right=2cm,top=2.5cm,bottom=2.5cm}    \setlength\columnseprule{0.4pt}  %landscape页面横制,twocolumn双栏 \setlength\columnseprule{0.4pt}分栏线宽默认为0,不可见
+\usepackage{amsmath}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{siunitx}
+\usetikzlibrary{calc}
+\usepackage{wrapfig}
+\usepackage{paracol}
+\usepackage{graphicx}
+\usepackage{zhlipsum}
+\usepackage{comment}		%注释，comment包则是首当其冲的包。除了comment环境外，它还提供了两个很有用的命令，includecomment和excludecomment。这两个命令，各带一个参数，参数类型是已有的环境名称，前者可以把注释环境变为非注释环境，后者可以把任何一个非注释的环境变为注释环境。我们借助excludecomment命令来实现这里的要求。 我们定义答案环境solution，然后视情况而定，选择是否注释掉solution环境。
+\input{zhyhshijuan}
+%\answer{1}%教师版带答案
+\answer{0}%学生版试卷无答案
+\linespread{1.5}
+
+
+\begin{document}
+	\vspace{-1cm}
+%		\lineskiplimit=3pt\lineskip=6pt
+	\juantou{2022年全国乙卷数学试题}{理}
+	\begin{center}\vspace{-0.5cm}
+	{\zihao{4}\heiti 第\Rmnum{1}卷}
+	\end{center}
+\vspace{-1cm}
+\section{\选择题}
+	\begin{enumerate}
+		\input{data/01}
+		\input{data/02}
+		\input{data/03}
+		\input{data/04}
+		\input{data/05}	
+		\input{data/06}	
+		\input{data/07}
+		\input{data/08}
+		\input{data/09}
+		\input{data/10}
+		\input{data/11}	
+		\input{data/12}	
+	\end{enumerate}
+	\begin{center}
+	{\zihao{4}\heiti 第\Rmnum{2}卷}
+\end{center}
+\vspace{-1cm}
+\section{\填空题}
+	\begin{enumerate}
+	\setcounter{enumi}{12}
+	\input{data/13}
+	\input{data/14}
+	\input{data/15}	
+	\input{data/16}	
+	\end{enumerate}
+%\newpage
+\vspace{-0.5cm}
+\section{\解答题}
+\vspace{-0.5cm}
+\subsection{\必考题}
+\baselineskip=0.95\baselineskip %改变其后的文本行的行距
+\begin{enumerate}
+	\setcounter{enumi}{16}
+		\input{data/17}
+		\input{data/18}
+		\input{data/19}
+		\input{data/20}
+		\input{data/21}	
+		%\input{data/22}
+		%\input{data/23}
+	\end{enumerate}
+\vspace{-1cm}
+	\subsection{\选考题}
+		\begin{enumerate}
+			\setcounter{enumi}{21}
+			\input{data/22}
+			\input{data/23}
+		\end{enumerate}
+\end{document}

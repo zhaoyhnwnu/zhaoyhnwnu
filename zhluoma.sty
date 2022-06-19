@@ -1,0 +1,36 @@
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{zhluoma}
+\setCJKfamilyfont{FZCDZFJ}{FZSongS.TTF}
+\def\FZCD{\CJKfamily{FZCDZFJ}}
+
+\xeCJKDeclareCharClass{CJK}{`ⅰ -> `ⅻ, `Ⅰ -> `Ⅻ}
+
+\makeatletter
+\newcommand{\romanCn}[1]{\FZCD%
+	\expandafter\@romanCn\csname c@#1\endcsname
+}
+
+\def\@romanCn#1{%
+	\ifcase#1\relax
+	\or ⅰ\or ⅱ\or ⅲ\or ⅳ\or ⅴ\or ⅵ\or ⅶ\or ⅷ\or ⅸ\or ⅹ\or ⅺ\or ⅻ%
+	\else
+	\@roman#1%
+	\fi
+}
+
+\newcommand{\RomanCn}[1]{\FZCD%
+	\expandafter\@RomanCn\csname c@#1\endcsname
+}
+
+\def\@RomanCn#1{%
+	\ifcase#1\relax
+	\or Ⅰ \or Ⅱ\or Ⅲ\or Ⅳ\or Ⅴ\or Ⅵ\or Ⅶ\or Ⅷ\or Ⅸ\or Ⅹ\or Ⅺ\or Ⅻ%
+	\else
+	\@Roman#1%
+	\fi
+}
+\makeatother
+\AddEnumerateCounter*{\RomanCn}{\@RomanCn}{Ⅰ}
+\AddEnumerateCounter*{\romanCn}{\@romanCn}{ⅰ}
+\endinput
